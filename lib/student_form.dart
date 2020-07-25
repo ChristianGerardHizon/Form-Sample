@@ -23,6 +23,10 @@ class _FormState extends State<StudentForm> {
     return Form(
       autovalidate: true,
       key: _formKey,
+
+      /// Whenever the textFields are updated this function is called and it
+      /// parses the data to FormData to be passed on the OnFormChange function.
+      ///
       onChanged: () {
         var data = FormData(
           firstName: _fNameCtrl.text,

@@ -17,6 +17,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
+    /// Add a FormData so that the form will on start will display one data.
+    ///
     _listOfStudents.add(FormData());
   }
 
@@ -35,6 +38,7 @@ class _MyAppState extends State<MyApp> {
 
     /// A new list is created based on _listOfStudents without the to FormData
     /// to be removed.
+    ///
     List<FormData> newList = [];
     _listOfStudents.asMap().forEach(((index, formData) {
       if (indexToRemove != index) {
@@ -52,12 +56,14 @@ class _MyAppState extends State<MyApp> {
   ///
   /// The student data is added to the list based on the StudentForm's index on
   /// the _listOfStudents array.
+  ///
   _onStudentDataChanged(int index, FormData formData) {
     _listOfStudents[index] = formData;
   }
 
   _onSubmit() {
     /// print output
+    ///
     _listOfStudents.map((e) => print(e.toJson())).toList();
   }
 
@@ -80,12 +86,10 @@ class _MyAppState extends State<MyApp> {
                     ListView.builder(
                       /// List view will occupy minimum space required.
                       ///
-                      ///
 
                       shrinkWrap: true,
 
-                      /// Disables scroll feature of listview
-                      ///
+                      /// Disables scroll feature of listView
                       ///
 
                       physics: NeverScrollableScrollPhysics(),
