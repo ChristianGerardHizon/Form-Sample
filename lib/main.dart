@@ -109,7 +109,7 @@ class _MyAppState extends State<MyApp> {
 
                     SizedBox(height: 70),
                   ],
-                ),ad
+                ),
               ),
               Positioned(
                 bottom: 0,
