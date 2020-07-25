@@ -25,25 +25,39 @@ class _MyAppState extends State<MyApp> {
     setState(() {});
   }
 
+  /// Handles Remove icon when StudentFrom is be removed.
+  /// * remove is disabled if 1 student form is remaining.
+  ///
   _onStudentRemove(int indexToRemove) {
     if (_listOfStudents.length == 1) {
       return;
     }
+
+    /// A new list is created based on _listOfStudents without the to FormData
+    /// to be removed.
     List<FormData> newList = [];
     _listOfStudents.asMap().forEach(((index, formData) {
       if (indexToRemove != index) {
         newList.add(formData);
       }
     }));
+
+    /// Changed the _listOfStudent to container the newList data.
     _listOfStudents = newList.toList();
     setState(() {});
   }
 
+  /// Whenever the StudentForm's are updated the function onChanged is triggered
+  /// and this _onStudentDataChanged is called.
+  ///
+  /// The student data is added to the list based on the StudentForm's index on
+  /// the _listOfStudents array.
   _onStudentDataChanged(int index, FormData formData) {
     _listOfStudents[index] = formData;
   }
 
   _onSubmit() {
+    /// print output
     _listOfStudents.map((e) => print(e.toJson())).toList();
   }
 
@@ -88,8 +102,6 @@ class _MyAppState extends State<MyApp> {
                       },
                     ),
 
-                    /// Flat Button
-                    ///
                     FlatButton(
                       onPressed: _onAddStudent,
                       child: Text('Add Student'),
@@ -97,7 +109,7 @@ class _MyAppState extends State<MyApp> {
 
                     SizedBox(height: 70),
                   ],
-                ),
+                ),ad
               ),
               Positioned(
                 bottom: 0,
