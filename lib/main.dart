@@ -86,12 +86,10 @@ class _MyAppState extends State<MyApp> {
                     ListView.builder(
                       /// List view will occupy minimum space required.
                       ///
-
                       shrinkWrap: true,
 
                       /// Disables scroll feature of listView
                       ///
-
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: _listOfStudents?.length ?? 0,
                       itemBuilder: (context, index) {
@@ -106,6 +104,8 @@ class _MyAppState extends State<MyApp> {
                       },
                     ),
 
+                    /// Add Student button
+                    ///
                     FlatButton(
                       onPressed: _onAddStudent,
                       child: Text('Add Student'),
@@ -115,6 +115,10 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
               ),
+
+              /// Submit Button
+              ///
+              ///
               Positioned(
                 bottom: 0,
                 right: 0,
