@@ -67,14 +67,16 @@ class _FormPageState extends State<FormPage> {
     ///
     var output = _listOfStudents.map((e) => e.toJson()).toList();
 
-    _listOfStudents.forEach((formData) => createUser(
-          formData.firstName,
-          formData.lastName,
+    Future.wait(_listOfStudents.map((formData) async {
+      await createUser(
+        formData.firstName,
+        formData.lastName,
 
-          /// this is the data from start page.
-          ///
-          this.widget.requestId,
-        ));
+        /// this is the data from start page.
+        ///
+        this.widget.requestId,
+      );
+    }));
   }
 
   createUser(String fname, String lname, int requestId) async {
