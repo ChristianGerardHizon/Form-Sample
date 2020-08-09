@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'models/formData.dart';
 
 class StudentForm extends StatefulWidget {
+  final int requestId;
   final Function(FormData) onFormChange;
   final Function() onRemove;
 
-  const StudentForm({Key key, this.onFormChange, this.onRemove})
+  const StudentForm({Key key, this.onFormChange, this.onRemove, this.requestId})
       : super(key: key);
 
   @override
@@ -25,7 +26,7 @@ class _FormState extends State<StudentForm> {
       key: _formKey,
 
       /// Whenever the textFields are updated this function is called and it
-      /// parses the data to FormData to be passed on the OnFormChange function.
+      /// creates a FormData object to be passed on the OnFormChange function.
       ///
       onChanged: () {
         var data = FormData(

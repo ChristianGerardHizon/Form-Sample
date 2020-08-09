@@ -9,6 +9,8 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   _onProceed() {
+    /// Id to be passed to the form page.
+    ///
     int requestId = 1;
 
     /// Passing Data for start page to form page
@@ -16,9 +18,7 @@ class _StartPageState extends State<StartPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => FormPage(
-          requestId: requestId,
-        ),
+        builder: (context) => FormPage(requestId: requestId),
       ),
     );
   }
